@@ -61,7 +61,7 @@ def tempCheck():
     a = True
     while ( a == True ):
         temps = int(temp())
-        if temps > 75:
+        if temps > 85:
             print('server is at > 75 degree')
             a = False
     print('Auto reboot in 3 minute...')
@@ -147,9 +147,9 @@ def pool_handler():
     # a = minuteTosecond(30) | check ngrok
     # b = hourToSecond(8) | start ngrok
     # c = minuteTosecond(15) | check battery
-    a = 500
-    b = 600
-    c = 500
+    a = minuteTosecond(15)
+    b = hourToSecond(4)
+    c = minuteTosecond(7)
 
     process = ([time_looper, [a, checkNgrok]], [time_looper, [b, startNgrok]], [time_looper, [c, battery]], [process_start, tempCheck]) # in order = checkngrok, ngrok, battery 
     secondary_process = (tempCheck,)

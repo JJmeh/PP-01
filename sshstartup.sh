@@ -2,7 +2,7 @@
 
 killall ngrok
 export DISPLAY=:0.0
-gnome-terminal --command "bash -c \"ngrok tcp 22 -region ap; exec bash\""
+gnome-terminal --command "bash -c \"ngrok tcp $1 -region ap; exec bash\""
 sleep 15
 
 curl http://localhost:4040/api/tunnels > tunnel.json

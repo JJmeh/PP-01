@@ -18,9 +18,9 @@ def sshSend(url):
 
 # -----------------------------------------
 
-def startNgrok():
+def startNgrok(port):
     print('\nStarting Ngrok....')
-    url = subprocess.getoutput('./ngrokstart.sh').split('/')[-1]
+    url = subprocess.getoutput('./ngrokstart.sh {}').format(port).split('/')[-1]
     print('\nStart finish, url : ')
     print(url)
     return url
@@ -33,7 +33,7 @@ def sshStart(): #kill ngrok process, start ngrok, send ngrok link | every 8 hour
     print('\nKilling Ngrok..')
     killNgrokProcess()
     print('\nSending Ngrok link and starting it..')
-    sendData(startNgrok())
+    sendData(startNgrok(22))
     print('\nDone..')
 
 # -----------------------------------------------

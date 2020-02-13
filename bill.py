@@ -269,13 +269,12 @@ def pool_handler():
 
     #this is test timings
     a = hourToSecond(1)
-    b = hourToSecond(2)
+    b = hourToSecond(2) + 10
     c = minuteTosecond(10)
     d = hourToSecond(2)
     e = minuteTosecond(15)
 
     process = ([time_looper, [e, checkIndividualNgrok]], [time_looper, [d, ngrokTCP]], [time_looper, [a, checkNgrok]], [time_looper, [b, ngrokSSH]], [time_looper, [c, battery]], [process_start, tempCheck]) # in order = checkngrok, ngrok, battery 
-    secondary_process = (tempCheck,)
     p = Pool(6)
     p.map(run_process, process)
 

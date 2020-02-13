@@ -7,4 +7,4 @@ sleep 15
 
 curl http://localhost:4040/api/tunnels > tunnel.json
 url=$(python3 tunnels.py)
-curl -X POST -H 'Content-type: application/text' --data '"$url"' https://nyxserverbot.herokuapp.com/data
+curl -X POST -H 'Content-type: application/text' --data '"\$url"' https://nyxserverbot.herokuapp.com/data

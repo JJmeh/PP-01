@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./sshstartup.sh
+python3 ngrokserverstart.sh
 sleep 10
 
 gnome-terminal -- bash -c "python3 bill.py; exit; exec bash"

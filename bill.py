@@ -237,12 +237,10 @@ def time_looper(a):
 
 def minuteTosecond(minute):
     second = minute * 60
-    print(int(second))
     return second
 
 def hourToSecond(hour):
     second = minuteTosecond(hour * 60)
-    print(int(second))
     return second
 
 def test1():
@@ -265,9 +263,9 @@ def pool_handler():
     # this is final deploy timings.
     # a = minuteTosecond(30) | check ngrok
     # b = hourToSecond(8) | start ngrok ssh
-    # c = minuteTosecond(15) | check battery
+    # c = minuteTosecond(10) | check battery
     # d = hourToSecond(8) | start ngrok tcp
-    # e = minuteTosecond(20) | check individual tunnel
+    # e = minuteTosecond(5) | check individual tunnel
 
     #this is test timings
     a = hourToSecond(1)

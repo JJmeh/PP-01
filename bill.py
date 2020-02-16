@@ -29,6 +29,9 @@ def sshSend(url):
     print('\nSending Url..')
     a = 'ap'
     c = url.split('.')[2]
+    d = url.split(':')
+    d1 = d[0]
+    d2 = d[1]
     if c == 'jp':
         b = 'TCP'
     elif c == 'ap':
@@ -36,7 +39,7 @@ def sshSend(url):
         print(c)
     else:
         return 'Error'
-    sendData('The {} url is : {}'.format(b, url))
+    sendData('{} -p {}'.format(d1, d2))
 
 # -----------------------------------------
 
@@ -164,11 +167,11 @@ def checkIndividualNgrok(): # check each ngrok tunnel, if one is off, start it b
         if a[1] == 'ssh':
             #start TCP
             print('TCP')
-            ngrokTCP
+            ngrokTCP()
         elif a[1] == 'tcp':
             #start ssh
             print('SSH')
-            ngrokSSH
+            ngrokSSH()
         else:
             pass
     elif c == False and d == True:
@@ -180,7 +183,7 @@ def checkIndividualNgrok(): # check each ngrok tunnel, if one is off, start it b
         elif b[1] == 'tcp':
             #start ssh
             print('SSH')
-            ngrokSSH
+            ngrokSSH()
         else:
             pass
     elif c == False and d == False:
@@ -271,10 +274,10 @@ def pool_handler():
 
     #this is test timings
     a = hourToSecond(1)
-    b = hourToSecond(2)
+    b = hourToSecond(4) + 10
     c = minuteTosecond(10)
-    d = hourToSecond(2)
-    e = minuteTosecond(15)
+    d = hourToSecond(3)
+    e = minuteTosecond(10)
 
     process = ([time_looper, [e, checkIndividualNgrok]], [time_looper, [d, ngrokTCP]], [time_looper, [a, checkNgrok]], [time_looper, [b, ngrokSSH]], [time_looper, [c, battery]], [process_start, tempCheck]) # in order = checkngrok, ngrok, battery 
     secondary_process = (tempCheck,)

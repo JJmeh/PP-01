@@ -26,6 +26,7 @@ def tcpSend(url):
     return 'send done.. {}'.format(result)
 
 def sshSend(url):
+    sendData(url, 'http://localhost:5000/get')
     print('\nSending Url..')
     a = 'ap'
     c = url.split('.')[2]
@@ -273,10 +274,14 @@ def pool_handler():
     #this is test timings
     a = hourToSecond(1)
 <<<<<<< HEAD
+<<<<<<< HEAD
     b = hourToSecond(4) + 10
 =======
     b = hourToSecond(2) + 10
 >>>>>>> 1c3a96c39b05c8287672b4b520f08e8d02d885d8
+=======
+    b = hourToSecond(8) + 10
+>>>>>>> re stage
     c = minuteTosecond(10)
     d = hourToSecond(3)
     e = minuteTosecond(10)

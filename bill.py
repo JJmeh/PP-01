@@ -240,12 +240,10 @@ def time_looper(a):
 
 def minuteTosecond(minute):
     second = minute * 60
-    print(int(second))
     return second
 
 def hourToSecond(hour):
     second = minuteTosecond(hour * 60)
-    print(int(second))
     return second
 
 def test1():
@@ -268,19 +266,22 @@ def pool_handler():
     # this is final deploy timings.
     # a = minuteTosecond(30) | check ngrok
     # b = hourToSecond(8) | start ngrok ssh
-    # c = minuteTosecond(15) | check battery
+    # c = minuteTosecond(10) | check battery
     # d = hourToSecond(8) | start ngrok tcp
-    # e = minuteTosecond(20) | check individual tunnel
+    # e = minuteTosecond(5) | check individual tunnel
 
     #this is test timings
     a = hourToSecond(1)
+<<<<<<< HEAD
     b = hourToSecond(4) + 10
+=======
+    b = hourToSecond(2) + 10
+>>>>>>> 1c3a96c39b05c8287672b4b520f08e8d02d885d8
     c = minuteTosecond(10)
     d = hourToSecond(3)
     e = minuteTosecond(10)
 
     process = ([time_looper, [e, checkIndividualNgrok]], [time_looper, [d, ngrokTCP]], [time_looper, [a, checkNgrok]], [time_looper, [b, ngrokSSH]], [time_looper, [c, battery]], [process_start, tempCheck]) # in order = checkngrok, ngrok, battery 
-    secondary_process = (tempCheck,)
     p = Pool(6)
     p.map(run_process, process)
 
